@@ -1,0 +1,139 @@
+.home-container{
+    font-family: 'Poppins',
+    sans-serif;
+    color: rgb(33, 33, 37);
+    scroll-behavior: smooth;
+    background-color: #FFF1B6;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    max-width: 1000px;
+}
+.nav-items{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-items li a {
+    color: black;
+    padding: 0.5rem 2rem;
+    text-decoration: none;
+    transition: all 0.2s ease-in;
+    font-weight: bold;
+}
+.search-box {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+
+.input-search {
+    height: 50px;
+    width: 50px;
+    border-style: none;
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    background-color: #FFF1B6;
+    padding-right: 40px;
+    color: black;
+}
+
+.input-search::placeholder {
+    color: #FFF1B6;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-family: 'Poppins',
+    sans-serif;
+    font-weight: bold;
+}
+
+.search-button {
+    width: 50px;
+    height: 60px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    color: black;
+    background-color: transparent;
+    pointer-events: painted;
+}
+
+.search-button:focus~.input-search {
+    width: 200px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+.input-search:focus {
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+button.signup-button {
+    cursor: pointer;
+    background-color: #b8deff;
+    color: black;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-weight: bold;
+    transition: all 0.1s ease-in;
+}
+button.login-button {
+    cursor: pointer;
+    background-color: #FFF1B6;
+    color: black;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-weight: bold;
+    transition: all 0.1s ease-in;
+}
+
+button.signup-button:hover {
+    box-shadow: 1px 1px 3px 0px #7e8280;
+}
+#home {
+    display: flex;
+    justify-content: space-around;
+    height: 500px;
+}
+.home-content {
+    margin: 0px;
+    padding: 3rem;
+    width: 40%;
+}
+
+.home-content h1 {
+    font-size: 40px;
+}
+.home-content p {
+    font-size: 20px;
+}
+.home-images-or-video {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: -350px;
+}
+iframe {
+    margin-top: -50px;
+    margin-right: 100px;
+}
