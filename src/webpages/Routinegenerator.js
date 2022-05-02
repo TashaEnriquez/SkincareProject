@@ -1,5 +1,5 @@
 const Routinegenerator = () => {
-    <div>this is routine generator page</div>
+  return <div>this is routine generator page</div>;
 };
 
 export default Routinegenerator;
