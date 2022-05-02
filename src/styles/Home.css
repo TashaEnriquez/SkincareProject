@@ -1,0 +1,7 @@
+.home-container {
+    font-family: 'Poppins',
+        sans-serif;
+    color: rgb(33, 33, 37);
+    scroll-behavior: smooth;
+    background-color: #FFF1B6;
+}
