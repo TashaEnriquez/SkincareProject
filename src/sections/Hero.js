@@ -3,7 +3,7 @@ import '../styles/Hero.css';
 
 const Hero = () => {
     return (
-        <div className="hero-container">
+        <div className="hero-section">
              <section id = "#hero">
                 <div className="hero-content">
                     <h1 className="hero-heading">Know it all with our Skincare guide</h1>
