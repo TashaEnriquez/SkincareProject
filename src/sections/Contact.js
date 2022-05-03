@@ -1,5 +1,6 @@
+import '../styles/Contact.css';
 const Contact = () => {
-  return <div className="contact-container">this is contact section</div>;
+  return <div className="contact-section">this is contact section</div>;
 };
 
 export default Contact;

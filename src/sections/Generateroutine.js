@@ -1,6 +1,7 @@
+import '../styles/Generateroutine.css';
 const Generateroutine = () => {
   return (
-    <div className="generateroutine-container">
+    <div className="generateroutine-section">
       this is generate your routine section
     </div>
   );

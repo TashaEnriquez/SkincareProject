@@ -1,3 +1,10 @@
+.navigation-bar {
+    font-family: 'Poppins',
+    sans-serif;
+    color: rgb(33, 33, 37);
+    scroll-behavior: smooth;
+    background-color: #FFF1B6;
+}
 nav {
     display: flex;
     justify-content: space-between;
@@ -106,5 +113,8 @@ button.login-button {
 }
 
 button.signup-button:hover {
+    box-shadow: 1px 1px 3px 0px #7e8280;
+}
+button.login-button:hover {
     box-shadow: 1px 1px 3px 0px #7e8280;
 }

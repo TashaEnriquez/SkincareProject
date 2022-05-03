@@ -5,10 +5,8 @@ import NavBar from "./sections/Navbar";
 const Layout = () => {
   return (
     <div>
-      <header>
         <NavBar />
-      </header>
-      <Outlet />
+        <Outlet />
     </div>
   );
 };

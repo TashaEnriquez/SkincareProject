@@ -1,0 +1,60 @@
+.login-form {
+    background: #fff;
+    width: 500px;
+    margin: 65px auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+    color: rgb(33, 33, 37);
+}
+
+h1 {
+    padding: 35px 35px 0 35px;
+    font-weight: 300;
+}
+.content {
+    padding: 35px;
+    text-align: center;
+}
+.input-field {
+    padding: 12px 5px;
+}
+input {
+    font-size: 16px;
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    padding: 10px 1px;
+    border: 0;
+    border-bottom: 1px solid #747474;
+    outline: none;
+    transition: all .2s;
+}
+
+.action {
+    display: flex;
+    flex-direction: row;
+}
+
+    .login-page-sign-in{
+        width: 100%;
+        border: none;
+        padding: 18px;
+        font-family: 'Poppins', sans-serif;
+        cursor: pointer;
+        text-transform: uppercase;
+        background: #FFF1B6;
+        color: rgb(33, 33, 37);
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 0;
+        letter-spacing: 0.2px;
+        outline: 0;
+        transition: all .3s;
+    }
+
+        .login-page-sign-in:hover {
+            background: #b8deff;
+        }
+
+       
