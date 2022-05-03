@@ -1,5 +1,7 @@
+import SkintypeFiltering from "./SkintypeFiltering";
+
 const Routinegenerator = () => {
-  return <div>this is routine generator page</div>;
+  return <SkintypeFiltering />;
 };
 
 export default Routinegenerator;
