@@ -1,5 +1,26 @@
 .generateroutine-section {
-    border: 2px solid gray;
-    padding: 20px;
-    margin-top: 20px;
+  padding: 2.5rem;
+  background-image: url("../images/generateRoutineBackground1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.generateRoutineButton {
+  background-color: #ff9aa2;
+  padding: 1rem;
+  font-size: 2.5rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

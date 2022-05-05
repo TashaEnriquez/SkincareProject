@@ -1,0 +1,94 @@
+.navigationBar {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: #ffffd8;
+}
+
+.logo {
+  width: 2rem;
+}
+
+.navItems {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+}
+
+.navigationBar li {
+  display: inline-block;
+  border-radius: 8px;
+  transition: all 0.3s ease-in;
+}
+
+.navigationBar li:hover {
+  background-color: #b8deff;
+}
+
+.navigationBar a {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  outline: none;
+}
+
+.active {
+  color: #b8deff;
+}
+
+.mobileMenuIcon {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 4rem;
+  cursor: pointer;
+  display: none;
+  outline: none;
+}
+
+.closeNavIcon {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .navigationBar {
+    padding: 0;
+  }
+
+  .mobileMenuIcon {
+    display: block;
+  }
+
+  .navItems {
+    transition: all 0.3s transform;
+    padding: 2rem;
+    width: 90%;
+    max-width: 300px;
+    border-radius: 12px;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+
+  .closeNavIcon {
+    display: block;
+    width: 3rem;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+    pointer-events: none;
+  }
+
+  .navigationBar li {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .hideItem {
+    display: none;
+  }
+}

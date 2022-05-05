@@ -4,6 +4,7 @@ import Login from "./webpages/Login";
 import Routinegenerator from "./webpages/Routinegenerator";
 import Signup from "./webpages/Signup";
 import Layout from "./Layout";
+import NotFound from "./webpages/NotFound";
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
         <Route path="routinegenerator" element={<Routinegenerator />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

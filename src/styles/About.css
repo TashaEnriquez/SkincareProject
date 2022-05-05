@@ -1,5 +1,16 @@
 .about-section {
-    border: 2px solid gray;
-    padding: 20px;
-    margin-top: 20px;
+  padding: 2.5rem;
+  background-color: #e0fefe;
+  display: flex;
+  align-items: center;
+}
+
+.us {
+  width: 40%;
+  text-align: center;
+}
+
+.picture {
+  width: 20%;
+  border-radius: 50%;
 }

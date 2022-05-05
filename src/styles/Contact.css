@@ -1,5 +1,54 @@
 .contact-section {
-    border: 2px solid gray;
-    padding: 20px;
-    margin-top: 20px;
+  padding: 2.5rem;
+  background-color: #b5ead7;
+}
+
+.title {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7rem;
+}
+
+.right {
+  width: 100%;
+}
+
+.left {
+  width: 100%;
+}
+
+input,
+textarea {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  font-size: 2rem;
+  padding: 1.2rem;
+  color: gray;
+  background-color: #e2f0cb;
+  border: none;
+  border-radius: 8px;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+textarea {
+  min-height: 250px;
+  resize: none;
+}
+
+.contactButton {
+  background-color: #e2f0cb;
+  font-size: 2rem;
+  display: inline-block;
+  border: none;
+  padding: 1rem 4rem;
+  border-radius: 8px;
+  cursor: pointer;
 }

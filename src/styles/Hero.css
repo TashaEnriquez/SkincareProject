@@ -1,37 +1,37 @@
-.hero-section{
-    font-family: 'Poppins',
-    sans-serif;
-    color: rgb(33, 33, 37);
-    scroll-behavior: smooth;
-    background-color: #FFF1B6;
+.hero-section {
+  padding: 2.5rem 0;
+  font-family: "Poppins", sans-serif;
+  color: rgb(33, 33, 37);
+  scroll-behavior: smooth;
+  background-color: #ffffd8;
 }
 #hero {
-    display: flex;
-    justify-content: space-around;
-    height: 500px;
+  display: flex;
+  justify-content: space-around;
+  height: 500px;
 }
 
 .hero-content {
-    margin: 0px;
-    padding: 3rem;
-    width: 40%;
+  margin: 0px;
+  padding: 3rem;
+  width: 40%;
 }
 
 .hero-content h1 {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 .hero-content p {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .hero-images-or-video {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: -350px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: -350px;
 }
 iframe {
-    margin-top: 20px;
-    margin-right: 100px;
+  margin-top: 20px;
+  margin-right: 100px;
 }
