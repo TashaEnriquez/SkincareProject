@@ -1,4 +1,5 @@
-import { HiOutlineSearch } from "react-icons/hi";
+import { Route } from 'react-router-dom';
+import Search from '../Search';
 import logo from "../images/logo.png";
 import { NavLink } from "react-router-dom";
 import { useAuth } from '../context/AuthContext';
@@ -29,18 +30,7 @@ const Navbar = () => {
 
              {isAuthenticated ? (
           <>
-          <li className="search">
-            <div className="search-box">
-              <button className="search-button">
-                <HiOutlineSearch />
-              </button>
-              <input
-                type="text"
-                className="input-search"
-                placeholder="Search..."
-              />
-            </div>
-          </li>
+          <Search />
           <li className="routine-item">
             <NavLink className="generate-routine-link" to="protected/routinegenerator">
               Generate my routine
