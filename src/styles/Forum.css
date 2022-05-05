@@ -1,5 +1,4 @@
 .forum-section {
-    border: 2px solid gray;
-    padding: 20px;
-    margin-top: 20px;
+  padding: 2.5rem;
+  background-color: #c7ceea;
 }

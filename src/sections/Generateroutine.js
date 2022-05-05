@@ -1,8 +1,12 @@
-import '../styles/Generateroutine.css';
+import { Link } from "react-router-dom";
+import "../styles/Generateroutine.css";
+
 const Generateroutine = () => {
   return (
     <div className="generateroutine-section">
-      this is generate your routine section
+      <button className="generateRoutineButton">
+        <Link to="routinegenerator">Generate My Routine</Link>
+      </button>
     </div>
   );
 };

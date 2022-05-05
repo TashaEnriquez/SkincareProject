@@ -1,4 +1,4 @@
-import Navbar from "../sections/Navbar";
+import React from "react";
 import Hero from "../sections/Hero";
 import Findyourskin from "../sections/Findyourskin";
 import Generateroutine from "../sections/Generateroutine";
@@ -11,14 +11,13 @@ import "../styles/Home.css";
 const Home = () => {
   return (
     <div className="home-page">
-      {/* <Navbar /> */}
       <Hero />
       <Findyourskin />
       <Generateroutine />
       <Forum />
       <About />
       <Contact />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
