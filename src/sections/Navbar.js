@@ -2,9 +2,12 @@ import { HiOutlineSearch } from "react-icons/hi";
 import logo from "../images/logo.png";
 import { NavLink } from "react-router-dom";
 import { useAuth } from '../context/AuthContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "../styles/Navbar.css";
 
 const Navbar = () => {
+   <ToastContainer />
   const { isAuthenticated, user, logout } = useAuth();
   return (
     <div className="navigation-bar">
