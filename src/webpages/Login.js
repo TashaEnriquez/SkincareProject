@@ -1,7 +1,8 @@
 import '../styles/Login.css';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from '../context/AuthContext';
 import Loading from '../Loading';
 
@@ -25,6 +26,7 @@ const Login = () => {
 
     return (
       <div className="login-form">
+      <ToastContainer />
        <form onSubmit={handleSubmit}>
          <h1>Login</h1>
          <div className="content">
