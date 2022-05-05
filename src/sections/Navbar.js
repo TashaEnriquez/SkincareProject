@@ -1,14 +1,15 @@
 import { Route } from 'react-router-dom';
-import Search from '../Search';
+//import Search from '../webpages/Search';
 import logo from "../images/logo.png";
 import { NavLink } from "react-router-dom";
 import { useAuth } from '../context/AuthContext';
 import { ToastContainer } from 'react-toastify';
+//import { HiOutlineSearch } from "react-icons/hi";
 import 'react-toastify/dist/ReactToastify.css';
 import "../styles/Navbar.css";
 
 const Navbar = () => {
-   <ToastContainer />
+ <ToastContainer />
   const { isAuthenticated, user, logout } = useAuth();
   return (
     <div className="navigation-bar">
@@ -30,7 +31,11 @@ const Navbar = () => {
 
              {isAuthenticated ? (
           <>
-          <Search />
+          <li className='search-item'>
+            <NavLink className="search-link" to="protected/search">
+             Search
+            </NavLink>
+          </li>
           <li className="routine-item">
             <NavLink className="generate-routine-link" to="protected/routinegenerator">
               Generate my routine
