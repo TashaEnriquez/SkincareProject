@@ -6,7 +6,7 @@ import Forum from "../sections/Forum";
 import About from "../sections/About";
 import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
-import "../styles/Home.css";
+import "../styles/General.css";
 
 const Home = () => {
   return (

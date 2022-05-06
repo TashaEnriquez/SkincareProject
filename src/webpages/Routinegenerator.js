@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import { Box } from "@mui/system";
+import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
+import "../styles/RoutineGenerator.css";
+import ConcernFiltering from "../components/ConcernFiltering";
+import IngredientFiltering from "../components/IngredientFiltering";
+import NoGoFiltering from "../components/NoGoFiltering";
 import {
-  Container,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography,
   Accordion,
   AccordionSummary,
   AccordionDetails,
@@ -16,17 +14,30 @@ import {
   Radio,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Link } from "react-router-dom";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 const RoutineGenerator = () => {
-  const [skintype, setSkintype] = useState("");
+  const [filter, setFilter] = useState({
+    category: null,
+    recommendedFor: null,
+  });
   const [products, setProducts] = useState([]);
+
+  const handleClick = (e) => {
+    setFilter((prev) => ({ ...prev, recommendedFor: e.target.value }));
+  };
 
   useEffect(() => {
     async function getProducts() {
-      const response = await fetch(
-        `http://localhost:5050/products/?recommendedFor=${skintype}`
-      );
+      const query = new URLSearchParams();
+      if (filter.category) {
+        query.append("category", filter.category);
+      }
+      if (filter.recommendedFor) {
+        query.append("recommendedFor", filter.recommendedFor);
+      }
+
+      const response = await fetch(`http://localhost:5050/products/?${query}`);
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -35,119 +46,137 @@ const RoutineGenerator = () => {
       }
 
       const products = await response.json();
+      console.log(query.toString());
       setProducts(products);
     }
 
     getProducts();
 
     return;
-  }, [skintype]);
+  }, [filter]);
+
+  const oilCleanser = products.filter(
+    (prod) => prod.category === "Oil Cleanser"
+  );
+  const cleanser = products.filter((prod) => prod.category === "Cleanser");
+  const treatment = products.filter((prod) => prod.category === "Treatment");
+  const moisturizer = products.filter(
+    (prod) => prod.category === "Moisturizer"
+  );
+  const sunscreen = products.filter((prod) => prod.category === "Sunscreen");
+
+  const Categories = ({ products, name }) => {
+    return (
+      <div className="mainMapping">
+        <div className="categoryDivision">
+          <h3 className="categoryTitle">{name}</h3>
+        </div>
+        <div className="productsByCategory">
+          {products.length
+            ? products.map((product) => (
+                <Card key={product._id} sx={{ maxWidth: 345 }}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="200"
+                      image={product.imageURL}
+                      alt={product.name}
+                    />
+                    <CardContent>
+                      <div className="cardContent">
+                        <div className="cardLeft">
+                          <h5>{product.name}</h5>
+                          <h4>{product.brand}</h4>
+                        </div>
+                        <div className="cardRight">
+                          <AddCircleOutlineIcon />
+                        </div>
+                      </div>
+                      {product.ingredients?.map((ingredient) => (
+                        <p>{ingredient.name}</p>
+                      ))}
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              ))
+            : "No product matches your search"}
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <Container>
-      <Box>
-        <Typography variant="h2" sx={{ textAlign: "center" }}>
-          Routine Generator
-        </Typography>
-      </Box>
-      <Box>
-        <Accordion>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Skintype</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <FormControl>
-              <RadioGroup
-                aria-labelledby="skintypes"
-                name="skintype"
-                defaultValue="all"
-              >
-                <FormControlLabel
-                  value="All"
-                  control={<Radio />}
-                  label="All"
-                  labelPlacement="start"
-                  onClick={() => {
-                    setSkintype("");
-                  }}
-                />
-                <FormControlLabel
-                  value="Oily"
-                  control={<Radio />}
-                  label="Oily"
-                  labelPlacement="start"
-                  onClick={() => {
-                    setSkintype("oily");
-                  }}
-                />
-                <FormControlLabel
-                  value="Dry"
-                  control={<Radio />}
-                  label="Dry"
-                  labelPlacement="start"
-                  onClick={() => {
-                    setSkintype("dry");
-                  }}
-                />
-                <FormControlLabel
-                  value="Combination"
-                  control={<Radio />}
-                  label="Combination"
-                  labelPlacement="start"
-                  onClick={() => {
-                    setSkintype("combination");
-                  }}
-                />
-                <FormControlLabel
-                  value="Normal"
-                  control={<Radio />}
-                  label="Normal"
-                  labelPlacement="start"
-                  onClick={() => {
-                    setSkintype("normal");
-                  }}
-                />
-              </RadioGroup>
-            </FormControl>
-          </AccordionDetails>
-        </Accordion>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}
-      >
-        {products?.map((product) => (
-          <Card key={product._id} sx={{ maxWidth: 345 }}>
-            <Link to={`/products/${product._id}`}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={product.imageURL}
-                  alt={product.name}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5">
-                    {product.name}
-                  </Typography>
-                  <Typography gutterBottom variant="h4">
-                    {product.brand}
-                  </Typography>
-                  {product.ingredients?.map((ingredient) => (
-                    <Typography gutterBottom variant="h4">
-                      {ingredient.name}
-                    </Typography>
-                  ))}
-                </CardContent>
-              </CardActionArea>
-            </Link>
-          </Card>
-        ))}
-      </Box>
-    </Container>
+    <div>
+      <div>
+        <h2>Routine Generator</h2>
+      </div>
+      <div className="mainSection">
+        <div className="left">
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon className="expandIcon" />}
+            >
+              <h3>Skintype</h3>
+            </AccordionSummary>
+            <AccordionDetails>
+              <FormControl>
+                <RadioGroup
+                  aria-labelledby="skintypes"
+                  name="skintype"
+                  defaultValue="all"
+                >
+                  <FormControlLabel
+                    value=""
+                    control={<Radio />}
+                    label="All"
+                    labelPlacement="start"
+                    onClick={handleClick}
+                  />
+                  <FormControlLabel
+                    value="Oily"
+                    control={<Radio />}
+                    label="Oily"
+                    labelPlacement="start"
+                    onClick={handleClick}
+                  />
+                  <FormControlLabel
+                    value="Dry"
+                    control={<Radio />}
+                    label="Dry"
+                    labelPlacement="start"
+                    onClick={handleClick}
+                  />
+                  <FormControlLabel
+                    value="Combination"
+                    control={<Radio />}
+                    label="Combination"
+                    labelPlacement="start"
+                    onClick={handleClick}
+                  />
+                  <FormControlLabel
+                    value="Normal"
+                    control={<Radio />}
+                    label="Normal"
+                    labelPlacement="start"
+                    onClick={handleClick}
+                  />
+                </RadioGroup>
+              </FormControl>
+            </AccordionDetails>
+          </Accordion>
+          <ConcernFiltering />
+          <IngredientFiltering />
+          <NoGoFiltering />
+        </div>
+        <div className="productsMapping">
+          <Categories products={oilCleanser} name="Oil Cleanser" />
+          <Categories products={cleanser} name="Cleanser" />
+          <Categories products={treatment} name="Treatment" />
+          <Categories products={moisturizer} name="Moisturizer" />
+          <Categories products={sunscreen} name="Sunscreen" />
+        </div>
+      </div>
+    </div>
   );
 };
 

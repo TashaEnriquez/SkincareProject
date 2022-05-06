@@ -1,0 +1,60 @@
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.singleProduct {
+  margin: 1rem;
+}
+
+.productsMapping {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  text-align: center;
+  margin-left: 5rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+.mainSection {
+  display: flex;
+}
+
+.left {
+  width: 20%;
+  padding-left: 1rem;
+}
+
+h4 {
+  color: gray;
+}
+
+p {
+  color: gray;
+  margin-top: 1rem;
+}
+
+h3,
+.expandIcon {
+  color: #ff9aa2;
+}
+
+.categoryTitle {
+  color: gray;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.mainMapping {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: baseline;
+  width: 100%;
+}
+
+.productsByCategory {
+  display: flex;
+}
