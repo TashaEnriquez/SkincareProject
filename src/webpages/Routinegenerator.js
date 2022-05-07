@@ -3,6 +3,7 @@ import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 import "../styles/RoutineGenerator.css";
 import ConcernFiltering from "../components/ConcernFiltering";
 import IngredientFiltering from "../components/IngredientFiltering";
+import AddRoutineButton from "../components/AddRoutineButton";
 import NoGoFiltering from "../components/NoGoFiltering";
 import {
   Accordion,
@@ -14,7 +15,7 @@ import {
   Radio,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+//import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 const RoutineGenerator = () => {
   const [filter, setFilter] = useState({
@@ -74,6 +75,7 @@ const RoutineGenerator = () => {
         <div className="productsByCategory">
           {products.length
             ? products.map((product) => (
+              <div>
                 <Card key={product._id} sx={{ maxWidth: 345 }}>
                   <CardActionArea>
                     <CardMedia
@@ -88,9 +90,6 @@ const RoutineGenerator = () => {
                           <h5>{product.name}</h5>
                           <h4>{product.brand}</h4>
                         </div>
-                        <div className="cardRight">
-                          <AddCircleOutlineIcon />
-                        </div>
                       </div>
                       {product.ingredients?.map((ingredient) => (
                         <p>{ingredient.name}</p>
@@ -98,6 +97,8 @@ const RoutineGenerator = () => {
                     </CardContent>
                   </CardActionArea>
                 </Card>
+               <AddRoutineButton />
+                </div>
               ))
             : "No product matches your search"}
         </div>
