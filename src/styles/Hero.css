@@ -1,4 +1,4 @@
-.hero-section {
+/* .hero-section {
   padding: 2.5rem 0;
   font-family: "Poppins", sans-serif;
   color: rgb(33, 33, 37);
@@ -34,4 +34,51 @@
 iframe {
   margin-top: 20px;
   margin-right: 100px;
+}
+ */
+
+.hero-bg {
+  background-color: #ffffd8;
+}
+
+.hero-bg .hero {
+  min-height: 50rem;
+  display: flex;
+  align-items: center;
+}
+
+.hero-bg .hero .left-content {
+  width: 50rem;
+  text-align: left;
+  margin-left: 50px;
+}
+
+.hero-bg .hero .left-content h3 {
+  font-size: 3.5rem;
+  color: var(--black);
+  font-family: "Poppins";
+}
+
+.hero-bg .hero .left-content p {
+  padding: 1rem 0;
+  font-size: 1.6rem;
+  color: var(--black);
+  line-height: 2;
+}
+button.signup-button {
+  cursor: pointer;
+  background-color: #b8deff;
+  color: black;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-weight: bold;
+  transition: all 0.1s ease-in;
+}
+.right-content {
+  display: flex;
+  margin-left: 80px;
+}
+img.step-one,img.step-two,img.step-three,img.step-four {
+  border-radius: 100px;
+  margin: 20px;
 }
