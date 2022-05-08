@@ -5,7 +5,7 @@ const Generateroutine = () => {
   return (
     <div className="generateroutine-section">
       <button className="generateRoutineButton">
-        <Link to="routinegenerator">Generate My Routine</Link>
+        <Link to="protected/routinegenerator">Generate My Routine</Link>
       </button>
     </div>
   );

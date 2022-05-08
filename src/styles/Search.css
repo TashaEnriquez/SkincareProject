@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
 li {
@@ -53,20 +54,22 @@ li {
     background-color: aliceblue;
     border: 2px solid grey;
 }
-.row {
+.products-list{
     display: flex;
-    justify-content: space-around;
-    flex-flow: wrap;
+    flex-wrap: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
 }
 
-.card {
+.product-card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 250px;
     margin-bottom: 20px;
     text-align: center;
 }
 
-.title {
+.brand-name {
     color: black;
     font-size: 18px;
     margin: 10px;

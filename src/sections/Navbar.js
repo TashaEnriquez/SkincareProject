@@ -18,7 +18,7 @@ const Navbar = () => {
           <img
             className="brand-logo"
             src={logo}
-            style={{ height: 150, width: 200 }}
+            style={{ height: 150, width: 250 }}
             alt="logo"
           />
         </NavLink>
