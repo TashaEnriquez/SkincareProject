@@ -3,7 +3,7 @@ import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 import "../styles/RoutineGenerator.css";
 import ConcernFiltering from "../components/ConcernFiltering";
 import IngredientFiltering from "../components/IngredientFiltering";
-import AddRoutineButton from "../components/AddRoutineButton";
+import AddRoutineButton from "../components/Modal.js";
 import NoGoFiltering from "../components/NoGoFiltering";
 import {
   Accordion,
@@ -15,7 +15,6 @@ import {
   Radio,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-//import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 const RoutineGenerator = () => {
   const [filter, setFilter] = useState({
