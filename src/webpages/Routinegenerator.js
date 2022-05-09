@@ -3,7 +3,7 @@ import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 import "../styles/RoutineGenerator.css";
 import ConcernFiltering from "../components/ConcernFiltering";
 import IngredientFiltering from "../components/IngredientFiltering";
-import AddRoutineButton from "../components/AddRoutineButton";
+import AddRoutineButton from "../components/Modal.js";
 import NoGoFiltering from "../components/NoGoFiltering";
 import {
   Accordion,
@@ -15,7 +15,6 @@ import {
   Radio,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-//import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 const RoutineGenerator = () => {
   const [filter, setFilter] = useState({
@@ -75,29 +74,32 @@ const RoutineGenerator = () => {
         <div className="productsByCategory">
           {products.length
             ? products.map((product) => (
-              <div>
-                <Card key={product._id} sx={{ maxWidth: 345 }}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="200"
-                      image={product.imageURL}
-                      alt={product.name}
-                    />
-                    <CardContent>
-                      <div className="cardContent">
-                        <div className="cardLeft">
-                          <h5>{product.name}</h5>
-                          <h4>{product.brand}</h4>
+                <div>
+                  <Card key={product._id} sx={{ maxWidth: 345 }}>
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        height="200"
+                        image={product.imageURL}
+                        alt={product.name}
+                      />
+                      <CardContent>
+                        <div className="cardContent">
+                          <div className="cardLeft">
+                            <h5>{product.name}</h5>
+                            <h4>{product.brand}</h4>
+                          </div>
+                          <div className="cardRight">
+                            {/* <AddRoutineButton /> */}
+                          </div>
                         </div>
-                      </div>
-                      {product.ingredients?.map((ingredient) => (
-                        <p>{ingredient.name}</p>
-                      ))}
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-               <AddRoutineButton />
+                        {product.ingredients?.map((ingredient) => (
+                          <p>{ingredient.name}</p>
+                        ))}
+                      </CardContent>
+                    </CardActionArea>
+                    <AddRoutineButton />
+                  </Card>
                 </div>
               ))
             : "No product matches your search"}
