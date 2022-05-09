@@ -69,18 +69,23 @@ const Search = () => {
               </li>
           </form>
      </div>
-    
-          {products.length>0 && products.map((product) => (
+    <div className="dad-container">
+      {products.length>0 && products.map((product) => (
 
      <div  key={product._id} className="products-list">
-            <div className="product-card">
-            <img src={product.imageURL} alt={product.name} />
-               <h3 className="product-name">{product.name}</h3>
-               <p className="brand-name">{product.brand}</p>
-             </div>      
+      
+        <div className="product-card">
+          <img src={product.imageURL} alt={product.name} />
+          <h3 className="product-name">{product.name}</h3>
+          <p className="brand-name">{product.brand}</p>
+        </div>
+     
+                  
      </div>
            
             ))}
+    </div>
+          
 
             {search && !products.length && (
               <h2>No search results found</h2>

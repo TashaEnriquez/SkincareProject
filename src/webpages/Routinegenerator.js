@@ -75,29 +75,29 @@ const RoutineGenerator = () => {
         <div className="productsByCategory">
           {products.length
             ? products.map((product) => (
-              <div>
-                <Card key={product._id} sx={{ maxWidth: 345 }}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="200"
-                      image={product.imageURL}
-                      alt={product.name}
-                    />
-                    <CardContent>
-                      <div className="cardContent">
-                        <div className="cardLeft">
-                          <h5>{product.name}</h5>
-                          <h4>{product.brand}</h4>
+                <div>
+                  <Card key={product._id} sx={{ maxWidth: 345 }}>
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        height="200"
+                        image={product.imageURL}
+                        alt={product.name}
+                      />
+                      <CardContent>
+                        <div className="cardContent">
+                          <div className="cardLeft">
+                            <h5>{product.name}</h5>
+                            <h4>{product.brand}</h4>
+                          </div>
                         </div>
-                      </div>
-                      {product.ingredients?.map((ingredient) => (
-                        <p>{ingredient.name}</p>
-                      ))}
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-               <AddRoutineButton />
+                        {product.ingredients?.map((ingredient) => (
+                          <p>{ingredient.name}</p>
+                        ))}
+                      </CardContent>
+                    </CardActionArea>
+                    <AddRoutineButton />
+                  </Card>
                 </div>
               ))
             : "No product matches your search"}

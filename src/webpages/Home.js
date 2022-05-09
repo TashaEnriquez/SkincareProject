@@ -5,6 +5,7 @@ import Generateroutine from "../sections/Generateroutine";
 //import Forum from "../sections/Forum";
 import About from "../sections/About";
 import Contact from "../sections/Contact";
+import Footer from "../sections/Footer";
 
 import "../styles/General.css";
 
@@ -17,7 +18,7 @@ const Home = () => {
      {/*  <Forum /> */}
       <About />
       <Contact />
-     
+       <Footer />
     </div>
   );
 };
