@@ -89,9 +89,6 @@ const RoutineGenerator = () => {
                             <h5>{product.name}</h5>
                             <h4>{product.brand}</h4>
                           </div>
-                          <div className="cardRight">
-                            {/* <AddRoutineButton /> */}
-                          </div>
                         </div>
                         {product.ingredients?.map((ingredient) => (
                           <p>{ingredient.name}</p>
