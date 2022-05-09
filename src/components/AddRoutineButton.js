@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import ReactModal from './ReactModal';
-import { GrAddCircle } from 'react-icons/gr';
+//import { GrAddCircle } from 'react-icons/gr';
 import "../styles/ModalButton.css"
 
 

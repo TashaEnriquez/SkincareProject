@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 //import Loading from "./Loading";
 //import { Link } from "react-router-dom";
-import { HiOutlineSearch } from "react-icons/hi";
+//import { HiOutlineSearch } from "react-icons/hi";
 import '../styles/Search.css';
 
 
@@ -72,11 +72,11 @@ const Search = () => {
     
           {products.length>0 && products.map((product) => (
 
-     <div  key={product._id} className="row">
-            <div className="card">
+     <div  key={product._id} className="products-list">
+            <div className="product-card">
             <img src={product.imageURL} alt={product.name} />
                <h3 className="product-name">{product.name}</h3>
-               <p className="title">{product.brand}</p>
+               <p className="brand-name">{product.brand}</p>
              </div>      
      </div>
            
