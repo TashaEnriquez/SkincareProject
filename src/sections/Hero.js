@@ -1,8 +1,4 @@
 import "../styles/Hero.css";
-import cleanser from "../images/cleanser.jpeg";
-import moisturize from "../images/moisturize.jpeg";
-import sunprotect from "../images/sunprotect.jpeg";
-import toning from "../images/toning.jpeg";
 
 const Hero = () => {
   return (
@@ -18,7 +14,7 @@ const Hero = () => {
         </div>
 
         <div className="right-content">
-          <div className="row-1">
+          {/* <div className="row-1">
             <img
               src={cleanser}
               alt="skincare"
@@ -45,6 +41,42 @@ const Hero = () => {
               style={{ height: 250, width: 350 }}
               className="step-four"
             />
+          </div> */}
+          <div className="first-two">
+            <div className="card-container-1">
+              <div className="overlay">
+                <div className="content-head">
+                  <p>Cleansing means washing your face</p>
+                  <hr />
+                </div>
+              </div>
+            </div>
+            <div className="card-container-2">
+              <div className="overlay">
+                <div className="content-head">
+                  <p>Moisturizing means hydrating the skin</p>
+                  <hr />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="second-two">
+            <div className="card-container-3">
+              <div className="overlay">
+                <div className="content-head">
+                  <p>Toning means balancing your skin</p>
+                  <hr />
+                </div>
+              </div>
+            </div>
+            <div className="card-container-4">
+              <div className="overlay">
+                <div className="content-head">
+                  <p>Protect your skin with Sunscreen</p>
+                  <hr />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
