@@ -1,0 +1,26 @@
+.single-product {
+    max-width: 1200px;
+    width: 100%;
+    margin: 100px auto;
+    box-shadow: 0 0 5px #ccc;
+}
+.details {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0;
+
+}
+.details-box h2 {
+    font-size: 35px;
+}
+.details-box {
+padding: 30px;
+}
+.add-to-routine {
+    padding: 10px;
+    font-weight: bold;
+    background-color: grey;
+    color: white;
+    margin-top: 20px;
+
+}
