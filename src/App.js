@@ -9,6 +9,7 @@ import Layout from "./Layout";
 import NotFound from "./webpages/NotFound";
 import AuthState from "./context/AuthContext";
 import ProtectedRoute from "./ProtectedRoute";
+import SingleProduct from "./webpages/SingleProduct";
 
 const App = () => {
   return (
@@ -19,10 +20,13 @@ const App = () => {
           <Route path="protected" element={<ProtectedRoute />}>
             <Route path="search" element={<Search />} />
             <Route path="routinegenerator" element={<Routinegenerator />} />
+
             <Route path="myroutines" element={<MyRoutines />} />
           </Route>
           <Route path="login" element={<Login />} />
+          <Route path="products/:productId" element={<SingleProduct />} />
           <Route path="signup" element={<Signup />} />
+
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

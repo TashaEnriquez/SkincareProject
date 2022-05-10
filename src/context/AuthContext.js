@@ -1,72 +1,71 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
-
 const AuthState = ({ children }) => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [user, setUser] = useState(null);
-    const [token, setToken] = useState(localStorage.getItem('token'));
-
-
-    useEffect(() => {
+  useEffect(() => {
     const getUser = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get('http://localhost:5050/auth/me', {
+        const { data } = await axios.get("http://localhost:5050/auth/me", {
           headers: {
-            Authorization: token
-          }
+            Authorization: token,
+          },
         });
         setUser(data);
         setIsAuthenticated(true);
         setLoading(false);
       } catch (error) {
         setToken(null);
-        localStorage.removeItem('token');
+        localStorage.removeItem("token");
         toast.error(error.response?.data.error || error.message);
         setLoading(false);
       }
     };
     token && getUser();
-    }, [token]);
+  }, [token]);
 
-    const registerUser = async formData => {
-        try{
-            setLoading(true);
-             const { data: { token } } = await axios.post('http://localhost:5050/auth/signup', formData);
-             localStorage.setItem('token', token);
-             setToken(token);
-             console.log(token);
-             setIsAuthenticated(true);
-             setLoading(false);
-             navigate('/protected/routinegenerator', { replace: true });
-        } catch (error){
-            toast.error(error.response?.data.error || error.messsage);
-            setLoading(false);
-         }
-    };
-
-    const loginUser = async formData => {
+  const registerUser = async (formData) => {
     try {
       setLoading(true);
       const {
-        data: { token }
-      } = await axios.post('http://localhost:5050/auth/signin', formData);
-      localStorage.setItem('token', token);
+        data: { token },
+      } = await axios.post("http://localhost:5050/auth/signup", formData);
+      localStorage.setItem("token", token);
+      setToken(token);
+      console.log(token);
+      setIsAuthenticated(true);
+      setLoading(false);
+      navigate("/protected/routinegenerator", { replace: true });
+    } catch (error) {
+      toast.error(error.response?.data.error || error.messsage);
+      setLoading(false);
+    }
+  };
+
+  const loginUser = async (formData) => {
+    try {
+      setLoading(true);
+      const {
+        data: { token },
+      } = await axios.post("http://localhost:5050/auth/signin", formData);
+      localStorage.setItem("token", token);
       setToken(token);
       setIsAuthenticated(true);
       setLoading(false);
-      navigate('/protected/routinegenerator', { replace: true });
+      navigate("/protected/routinegenerator", { replace: true });
     } catch (error) {
       toast.error(error.response?.data.error || error.message);
       setLoading(false);
@@ -74,13 +73,25 @@ const AuthState = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     setToken(null);
     setUser(null);
     setIsAuthenticated(false);
   };
 
-    return <AuthContext.Provider value={{ loading, isAuthenticated, registerUser, loginUser, logout, user }}>
-    { children }</AuthContext.Provider>
-}
+  return (
+    <AuthContext.Provider
+      value={{
+        loading,
+        isAuthenticated,
+        registerUser,
+        loginUser,
+        logout,
+        user,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};
 export default AuthState;
