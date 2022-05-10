@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useAuth } from "../context/AuthContext";
-import CreateNewRoutine from "./CreateRoutine";
+import CreateNewRoutine from "./CreateRoutine.js";
 
 const style = {
   position: "absolute",
@@ -20,9 +20,19 @@ const style = {
 };
 
 const AddRoutineButton = () => {
-  const { user } = useAuth();
+  const {
+    user: { routines },
+  } = useAuth();
   const [open, setOpen] = React.useState(false);
   const handleClick = () => setOpen(!open);
+
+  const routineList = () => {
+    return routines?.map((routine) => {
+      return <Button key={routine._id}>{routine.name}</Button>;
+    });
+  };
+
+  console.log(routines);
 
   return (
     <div>
@@ -39,9 +49,10 @@ const AddRoutineButton = () => {
           <Typography variant="h6" component="h2">
             My routines
           </Typography>
-          <Typography sx={{ mt: 2 }}>
+          <div>
             <CreateNewRoutine />
-          </Typography>
+          </div>
+          {/* <button>Create new routine</button> */}
         </Box>
       </Modal>
     </div>
