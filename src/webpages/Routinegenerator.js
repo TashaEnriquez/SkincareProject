@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 import "../styles/RoutineGenerator.css";
 import ConcernFiltering from "../components/ConcernFiltering";
@@ -77,12 +78,14 @@ const RoutineGenerator = () => {
                 <div>
                   <Card key={product._id} sx={{ maxWidth: 345 }}>
                     <CardActionArea>
-                      <CardMedia
-                        component="img"
-                        height="200"
-                        image={product.imageURL}
-                        alt={product.name}
-                      />
+                      <Link to={`/products/${product._id}`}>
+                        <CardMedia
+                          component="img"
+                          height="200"
+                          image={product.imageURL}
+                          alt={product.name}
+                        />
+                      </Link>
                       <CardContent>
                         <div className="cardContent">
                           <div className="cardLeft">
