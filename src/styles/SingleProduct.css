@@ -1,8 +1,13 @@
+body {
+    background-color: #ffffd8;
+}
+
 .single-product {
     max-width: 1200px;
     width: 100%;
-    margin: 100px auto;
+    margin: 30px auto;
     box-shadow: 0 0 5px #ccc;
+    background-color: #F8FFE7;
 }
 .details {
     display: flex;
@@ -23,4 +28,9 @@ padding: 30px;
     color: white;
     margin-top: 20px;
 
+}
+.big-image img {
+    box-shadow: 0 0 5px #ccc;
+    width: 500px;
+    margin-left: 30px;
 }
