@@ -95,7 +95,8 @@ button.signup-button {
   background-color: #b8deff;
   color: black;
   border: none;
-  padding: 0.7rem 1.5rem;
+  margin-top: -5px;
+  padding: 0.5rem 1.5rem;
   font-weight: bold;
   transition: all 0.1s ease-in;
 }
@@ -105,7 +106,8 @@ button.login-button {
   background-color: #b8deff;
   color: black;
   border: none;
-  padding: 0.7rem 1.5rem;
+  margin-top: -5px;
+  padding: 0.5rem 1.5rem;
   font-weight: bold;
   transition: all 0.1s ease-in;
 }
