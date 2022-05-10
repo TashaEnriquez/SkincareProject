@@ -26,7 +26,7 @@ const AddRoutineButton = () => {
   const [open, setOpen] = React.useState(false);
   const handleClick = () => setOpen(!open);
 
-  const routineList = () => {
+  const RoutineList = () => {
     return routines?.map((routine) => {
       return <Button key={routine._id}>{routine.name}</Button>;
     });
@@ -50,9 +50,9 @@ const AddRoutineButton = () => {
             My routines
           </Typography>
           <div>
-            <CreateNewRoutine />
+            <RoutineList />
           </div>
-          {/* <button>Create new routine</button> */}
+          <button>Create new routine</button>
         </Box>
       </Modal>
     </div>

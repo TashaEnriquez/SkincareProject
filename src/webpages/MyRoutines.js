@@ -79,7 +79,7 @@ const MyRoutines = () => {
                           />
                         </div>
                       ))
-                    : "No product matches your search"}
+                    : "No routines to show"}
                 </RadioGroup>
               </FormControl>
             </AccordionDetails>
