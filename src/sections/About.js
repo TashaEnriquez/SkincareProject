@@ -3,7 +3,7 @@ import logo from "../images/logo.png";
 
 const About = () => {
   return (
-    <div className="about-section">
+    <div className="about-section" id="about-section">
       <h2 className="abouth2">About Us</h2>
       <div className="about-content">
         <div className="name">

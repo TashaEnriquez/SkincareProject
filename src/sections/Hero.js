@@ -10,7 +10,6 @@ const Hero = () => {
             As the current world of skin care is extremely confusing, with Know
             It, you can start being mindful about your skin health.
           </p>
-          <button className="signup-button">Sign Up</button>
         </div>
 
         <div className="right-content">
