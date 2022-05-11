@@ -48,6 +48,7 @@ iframe {
 }
 
 .hero-bg .hero .left-content {
+  margin-top: -150px;
   width: 50rem;
   text-align: left;
   margin-left: 50px;
@@ -75,6 +76,7 @@ button.signup-button {
   transition: all 0.1s ease-in;
 }
 .right-content {
+  margin-top: -100px;
   display: flex;
   margin-left: 80px;
 }
@@ -88,7 +90,7 @@ button.signup-button {
   margin-top: -200px;
 }
 .card-container-1 {
-    width: 250px;
+    width: 300px;
     height: 200px;
     border-radius: 50px;
     position: relative;
@@ -132,11 +134,11 @@ button.signup-button {
   }
 
 .card-container-2 {
-  width: 250px;
+  width: 300px;
   height: 200px;
   border-radius: 50px;
   position: relative;
-  margin: auto;
+  margin-top: 20px;
   background-image: url(../images/moisturize.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -155,7 +157,7 @@ button.signup-button {
   transform: translateY(10px);
 }
 .card-container-3 {
-  width: 250px;
+  width: 300px;
   height: 200px;
   border-radius: 50px;
   position: relative;
@@ -179,11 +181,12 @@ button.signup-button {
   transform: translateY(10px);
 }
 .card-container-4 {
-  width: 250px;
+  width: 300px;
   height: 200px;
   border-radius: 50px;
   position: relative;
   margin-left: 30px;
+  margin-top: 20px;
   background-image: url(../images/sunprotect.png);
   background-size: cover;
   background-repeat: no-repeat;
