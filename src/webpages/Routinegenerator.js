@@ -23,6 +23,7 @@ const RoutineGenerator = () => {
     recommendedFor: null,
   });
   const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState("");
 
   const handleClick = (e) => {
     setFilter((prev) => ({ ...prev, recommendedFor: e.target.value }));
@@ -98,7 +99,7 @@ const RoutineGenerator = () => {
                         ))}
                       </CardContent>
                     </CardActionArea>
-                    <AddRoutineButton />
+                    <AddRoutineButton productId={product._id} />
                   </Card>
                 </div>
               ))

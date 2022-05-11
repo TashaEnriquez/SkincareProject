@@ -19,12 +19,16 @@ const style = {
   p: 4,
 };
 
-const AddRoutineButton = () => {
+const AddRoutineButton = ({ productId }) => {
+  // console.log("ID", productId);
   const {
     user: { routines },
   } = useAuth();
   const [open, setOpen] = React.useState(false);
-  const handleClick = () => setOpen(!open);
+  const handleClick = (e) => {
+    // console.log("button +", e.target);
+    setOpen(!open);
+  };
 
   const RoutineList = () => {
     return routines?.map((routine) => {
@@ -52,7 +56,7 @@ const AddRoutineButton = () => {
           <div>
             <RoutineList />
           </div>
-          <button>Create new routine</button>
+          <CreateNewRoutine productId={productId} />
         </Box>
       </Modal>
     </div>

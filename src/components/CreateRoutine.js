@@ -2,11 +2,11 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const CreateNewRoutine = () => {
+const CreateNewRoutine = ({ productId }) => {
   const { user } = useAuth();
   const [form, setForm] = useState({
     name: "",
-    product: "",
+    products: productId,
   });
   const navigate = useNavigate();
 
@@ -27,10 +27,12 @@ const CreateNewRoutine = () => {
         Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify(newRoutine),
-    }).catch((error) => {
-      window.alert(error);
-      return;
-    });
+    })
+      .then((res) => console.log("after chosing product", res))
+      .catch((error) => {
+        window.alert(error);
+        return;
+      });
 
     navigate("/protected/routinegenerator");
   }
@@ -49,7 +51,7 @@ const CreateNewRoutine = () => {
         />
         <input
           type="submit"
-          value="Create product"
+          value="Create routine"
           className="btn btn-primary"
         />
       </form>
