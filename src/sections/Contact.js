@@ -2,7 +2,7 @@ import "../styles/Contact.css";
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import Googlemap from "../components/Googlemap";
-import Info from "../components/Info";
+import { TextField } from "@mui/material";
 
 const Contact = () => {
   const [{ name, user_email, message }, setFormState] = useState({
@@ -62,39 +62,59 @@ const Contact = () => {
           </a>
         </div>
         <div className="right">
-          <label htmlFor="name">
-            Your name
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={name}
-              onChange={(e) => setFormState(e.target.value)}
-            />
-          </label>
-          <label htmlFor="email">
-            Your E-Mail
-            <input
-              type="text"
-              id="email"
-              name="email"
-              value={user_email}
-              onChange={(e) => setFormState(e.target.value)}
-            />
-          </label>
-          <label htmlFor="message">
-            Your message
-            <textarea
-              type="text"
-              id="message"
-              name="message"
-              value={message}
-              onChange={(e) => setFormState(e.target.value)}
-            />
-          </label>
-          <button type="submit" className="contactButton">
-            Send
-          </button>
+          <form onSubmit={sendEmail}>
+            <label htmlFor="name">
+              Your name
+              <TextField
+                className="input"
+                type="text"
+                id="name"
+                name="name"
+                label="Your Name"
+                size="small"
+                margin="normal"
+                value={name}
+                onChange={handleInputChange}
+                error={Boolean(errors?.name)}
+                helperText={errors?.name}
+              />
+            </label>
+            <label htmlFor="email">
+              Your E-Mail
+              <TextField
+                className="input"
+                type="email"
+                id="user_email"
+                name="user_email"
+                label="Your E-Mail"
+                size="small"
+                margin="normal"
+                value={user_email}
+                onChange={handleInputChange}
+                error={Boolean(errors?.user_email)}
+                helperText={errors?.user_email}
+              />
+            </label>
+            <label htmlFor="message">
+              Your message
+              <TextField
+                className="textarea"
+                multiline
+                type="text"
+                id="message"
+                name="message"
+                label="Your Message"
+                margin="normal"
+                value={message}
+                onChange={handleInputChange}
+                error={Boolean(errors?.message)}
+                helperText={errors?.message}
+              />
+            </label>
+            <button type="submit" className="contactButton">
+              Send
+            </button>
+          </form>
         </div>
       </div>
     </div>
