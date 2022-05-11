@@ -42,7 +42,7 @@ iframe {
 }
 
 .hero-bg .hero {
-  min-height: 50rem;
+  min-height: 35rem;
   display: flex;
   align-items: center;
 }
