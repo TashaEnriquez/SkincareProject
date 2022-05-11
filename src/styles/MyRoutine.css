@@ -1,6 +1,30 @@
-
 .mainMapping {
-display: flex;
-justify-content: center;
-align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2.5rem 0;
+}
+
+.categoryDivision {
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.myRoutinesh2 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.singleProduct {
+  margin: 1rem;
+}
+
+.productsMapping {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  text-align: center;
+  margin-left: 5rem;
 }
