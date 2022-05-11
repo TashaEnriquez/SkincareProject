@@ -87,6 +87,7 @@ const AuthState = ({ children }) => {
         registerUser,
         loginUser,
         logout,
+        setUser,
         user,
       }}
     >

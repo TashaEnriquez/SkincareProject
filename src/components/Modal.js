@@ -6,6 +6,7 @@ import Modal from "@mui/material/Modal";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useAuth } from "../context/AuthContext";
 import CreateNewRoutine from "./CreateRoutine.js";
+import EditRoutine from "./EditRoutine.js";
 
 const style = {
   position: "absolute",
@@ -30,14 +31,6 @@ const AddRoutineButton = ({ productId }) => {
     setOpen(!open);
   };
 
-  const RoutineList = () => {
-    return routines?.map((routine) => {
-      return <Button key={routine._id}>{routine.name}</Button>;
-    });
-  };
-
-  console.log(routines);
-
   return (
     <div>
       <Button onClick={handleClick}>
@@ -54,7 +47,9 @@ const AddRoutineButton = ({ productId }) => {
             My routines
           </Typography>
           <div>
-            <RoutineList />
+            {routines?.map((routine) => {
+              return <EditRoutine routine={routine} productId={productId} />;
+            })}
           </div>
           <CreateNewRoutine productId={productId} />
         </Box>

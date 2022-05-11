@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const CreateNewRoutine = ({ productId }) => {
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
   const [form, setForm] = useState({
     name: "",
     products: productId,
@@ -28,13 +28,15 @@ const CreateNewRoutine = ({ productId }) => {
       },
       body: JSON.stringify(newRoutine),
     })
-      .then((res) => console.log("after chosing product", res))
+      .then((res) => res.json())
+      .then((data) => {
+        setUser((prev) => ({ ...prev, routines: data }));
+        navigate("/protected/myroutines");
+      })
       .catch((error) => {
         window.alert(error);
         return;
       });
-
-    navigate("/protected/routinegenerator");
   }
 
   return (

@@ -4,6 +4,7 @@ import axios from "axios";
 // import { CardMedia } from "@mui/material";
 import { toast } from "react-toastify";
 import Loading from "../Loading";
+import AddRoutineButton from "../components/Modal";
 import "../styles/SingleProduct.css";
 
 const SingleProduct = () => {
@@ -56,7 +57,7 @@ const SingleProduct = () => {
               </div>
             ))}
           </div>
-          <button className="add-to-routine">ADD TO ROUTINE</button>
+          <AddRoutineButton productId={product._id} />
         </div>
       </div>
     </div>
