@@ -15,7 +15,7 @@
   margin-left: 5rem;
 }
 
-h2 {
+.routineh2 {
   text-align: center;
 }
 
@@ -23,21 +23,21 @@ h2 {
   display: flex;
 }
 
-.left {
+.routineLeft {
   width: 20%;
   padding-left: 1rem;
 }
 
-h4 {
+.routineh4 {
   color: gray;
 }
 
-p {
+.routinep {
   color: gray;
   margin-top: 1rem;
 }
 
-h3,
+.routineh3,
 .expandIcon {
   color: #ff9aa2;
 }

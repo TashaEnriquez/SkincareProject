@@ -16,7 +16,7 @@ const ConcernFiltering = () => {
   return (
     <Accordion>
       <AccordionSummary expandIcon={<ExpandMoreIcon className="expandIcon" />}>
-        <h3>Concern</h3>
+        <h3 className="routineh3">Concern</h3>
       </AccordionSummary>
       <AccordionDetails>
         <FormControl>

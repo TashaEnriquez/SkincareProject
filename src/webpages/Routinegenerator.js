@@ -93,11 +93,11 @@ const RoutineGenerator = () => {
                         <div className="cardContent">
                           <div className="cardLeft">
                             <h5>{product.name}</h5>
-                            <h4>{product.brand}</h4>
+                            <h4 className="routineh4">{product.brand}</h4>
                           </div>
                         </div>
                         {product.ingredients?.map((ingredient) => (
-                          <p>{ingredient.name}</p>
+                          <p className="routinep">{ingredient.name}</p>
                         ))}
                       </CardContent>
                     </CardActionArea>
@@ -114,15 +114,15 @@ const RoutineGenerator = () => {
   return (
     <div>
       <div>
-        <h2>Routine Generator</h2>
+        <h2 className="routineh2">Routine Generator</h2>
       </div>
       <div className="mainSection">
-        <div className="left">
+        <div className="routineLeft">
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon className="expandIcon" />}
             >
-              <h3>Skintype</h3>
+              <h3 className="routineh3">Skintype</h3>
             </AccordionSummary>
             <AccordionDetails>
               <FormControl>
