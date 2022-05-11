@@ -47,8 +47,8 @@ const Contact = () => {
   return (
     <div className="contact-section">
       <div className="title">
-        <h2>Contact</h2>
-        <h3>Get in touch!</h3>
+        <h2 className="contacth2">Contact</h2>
+        <h3 className="contacth3">Get in touch!</h3>
       </div>
       <div className="container">
         <div className="left">Information</div>

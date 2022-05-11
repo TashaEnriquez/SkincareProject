@@ -8,7 +8,7 @@ const Findyourskin = () => {
   return (
     <div className="findyourskin-section">
       <div className="instructions">
-        <h2>How to find your skintype</h2>
+        <h2 className="instructionsh2">How to find your skintype</h2>
         <h4>Skintype refers to the hydration level of your face.</h4>
         <h4>
           Finding out your skintype helps you learn how to help your skin, so
