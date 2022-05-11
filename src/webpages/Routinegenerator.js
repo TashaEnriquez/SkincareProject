@@ -23,6 +23,7 @@ const RoutineGenerator = () => {
     recommendedFor: null,
   });
   const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState("");
 
   const handleClick = (e) => {
     setFilter((prev) => ({ ...prev, recommendedFor: e.target.value }));
@@ -38,7 +39,9 @@ const RoutineGenerator = () => {
         query.append("recommendedFor", filter.recommendedFor);
       }
 
-      const response = await fetch(`http://localhost:5050/products/?${query}`);
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/products/?${query}`
+      );
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -98,7 +101,7 @@ const RoutineGenerator = () => {
                         ))}
                       </CardContent>
                     </CardActionArea>
-                    <AddRoutineButton />
+                    <AddRoutineButton productId={product._id} />
                   </Card>
                 </div>
               ))

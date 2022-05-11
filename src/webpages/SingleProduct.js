@@ -4,6 +4,7 @@ import axios from "axios";
 // import { CardMedia } from "@mui/material";
 import { toast } from "react-toastify";
 import Loading from "../Loading";
+import AddRoutineButton from "../components/Modal";
 import "../styles/SingleProduct.css";
 
 const SingleProduct = () => {
@@ -18,9 +19,12 @@ const SingleProduct = () => {
       try {
         setLoading(true);
         const { data } = await axios.get(
-          `http://localhost:5050/products/${productId}`
+          `${process.env.REACT_APP_API_URL}/products/${productId}`
         );
-        console.log("url", `http://localhost:5050/products/${productId}`);
+        console.log(
+          "url",
+          `${process.env.REACT_APP_API_URL}/products/${productId}`
+        );
         console.log(data);
         setProduct(data.data);
         setLoading(false);
@@ -56,7 +60,7 @@ const SingleProduct = () => {
               </div>
             ))}
           </div>
-          <button className="add-to-routine">ADD TO ROUTINE</button>
+          <AddRoutineButton productId={product._id} />
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ const SkintypeFiltering = () => {
   useEffect(() => {
     async function getProducts() {
       const response = await fetch(
-        `http://localhost:5050/products/?recommendedFor=${skintype}`
+        `${process.env.REACT_APP_API_URL}/products/?recommendedFor=${skintype}`
       );
 
       if (!response.ok) {

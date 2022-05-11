@@ -1,70 +1,43 @@
 import { useState, useEffect } from "react";
 import "../styles/MyRoutine.css";
 import { useAuth } from "../context/AuthContext";
-import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  FormControl,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 
 const MyRoutines = () => {
   const [routines, setRoutines] = useState([]);
-  const { user } = useAuth();
-  const [routineId, setRoutineId] = useState(" ");
+  const { user, setUser } = useAuth();
 
-  const handleClick = (e) => {
-    setRoutineId((prev) => ({ ...prev, name: e.target.value }));
-  };
-
-  useEffect(() => {
-    async function getRoutines() {
-      const response = await fetch(
-        `http://localhost:5050/routines/user/${user._id}/routines/${routineId}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
-
-      if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
+  const deleteRoutine = async (routineId) => {
+    await fetch(
+      `${process.env.REACT_APP_API_URL}/routines/user/${user._id}/routines/${routineId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("token"),
+        },
       }
-
-      const routines = await response.json();
-      setRoutines(routines);
-    }
-
-    getRoutines();
-
-    return;
-  }, [routineId]);
-
-  const amroutine = routines.filter((item) => item.name === "AM Routine");
-  const pmroutine = routines.filter((item) => item.name === "PM Routine");
-
-  const productsMapping = (e) => {
-    setRoutines(e.target.value);
+    )
+      .then((res) => res.json())
+      .then((data) => setUser((prev) => ({ ...prev, routines: data })))
+      .catch((err) => console.error(err));
   };
 
-  const RoutineTypes = ({ routines, name }) => {
+  const RoutineTypes = () => {
     return (
       <div className="mainMapping">
-        <div className="categoryDivision">
-          <h3 className="categoryTitle">{name}</h3>
-        </div>
         <div className="routinesByType">
-          {routines.length
-            ? routines.map((routine) => (
+          {user.routines.length
+            ? user.routines.map((routine) => (
                 <div key={routine._id}>
+                  <div className="categoryDivision">
+                    <h3 className="categoryTitle">
+                      {routine.name}{" "}
+                      <DeleteForeverOutlinedIcon
+                        onClick={() => deleteRoutine(routine._id)}
+                      />
+                    </h3>
+                  </div>
                   <div className="cardContent">
                     <div>
                       {routine.products?.map((product) => (
@@ -85,7 +58,7 @@ const MyRoutines = () => {
       <div>
         <h2>My Routines</h2>
       </div>
-
+      <RoutineTypes />
       {/*    <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon className="expandIcon" />}
@@ -117,10 +90,10 @@ const MyRoutines = () => {
             </AccordionDetails>
           </Accordion> */}
 
-      <div className="productsMapping">
+      {/*  <div className="productsMapping">
         <RoutineTypes routines={amroutine} name="AM Routine" />
         <RoutineTypes routines={pmroutine} name="PM Routine" />
-      </div>
+        </div>*/}
     </div>
   );
 };

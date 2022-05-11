@@ -19,11 +19,14 @@ const AuthState = ({ children }) => {
     const getUser = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get("http://localhost:5050/auth/me", {
-          headers: {
-            Authorization: token,
-          },
-        });
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}/auth/me`,
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
         setUser(data);
         setIsAuthenticated(true);
         setLoading(false);
@@ -42,7 +45,10 @@ const AuthState = ({ children }) => {
       setLoading(true);
       const {
         data: { token },
-      } = await axios.post("http://localhost:5050/auth/signup", formData);
+      } = await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/signup`,
+        formData
+      );
       localStorage.setItem("token", token);
       setToken(token);
       console.log(token);
@@ -60,7 +66,10 @@ const AuthState = ({ children }) => {
       setLoading(true);
       const {
         data: { token },
-      } = await axios.post("http://localhost:5050/auth/signin", formData);
+      } = await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/signin`,
+        formData
+      );
       localStorage.setItem("token", token);
       setToken(token);
       setIsAuthenticated(true);
@@ -87,6 +96,7 @@ const AuthState = ({ children }) => {
         registerUser,
         loginUser,
         logout,
+        setUser,
         user,
       }}
     >

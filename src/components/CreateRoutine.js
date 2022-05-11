@@ -2,11 +2,11 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const CreateNewRoutine = () => {
-  const { user } = useAuth();
+const CreateNewRoutine = ({ productId }) => {
+  const { user, setUser } = useAuth();
   const [form, setForm] = useState({
     name: "",
-    product: "",
+    products: productId,
   });
   const navigate = useNavigate();
 
@@ -20,19 +20,26 @@ const CreateNewRoutine = () => {
     e.preventDefault();
     const newRoutine = { ...form };
 
-    await fetch(`http://localhost:5050/routines/user/${user._id}/routines`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token"),
-      },
-      body: JSON.stringify(newRoutine),
-    }).catch((error) => {
-      window.alert(error);
-      return;
-    });
-
-    navigate("/protected/routinegenerator");
+    await fetch(
+      `${process.env.REACT_APP_API_URL}/routines/user/${user._id}/routines`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("token"),
+        },
+        body: JSON.stringify(newRoutine),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setUser((prev) => ({ ...prev, routines: data }));
+        navigate("/protected/myroutines");
+      })
+      .catch((error) => {
+        window.alert(error);
+        return;
+      });
   }
 
   return (
@@ -49,7 +56,7 @@ const CreateNewRoutine = () => {
         />
         <input
           type="submit"
-          value="Create product"
+          value="Create routine"
           className="btn btn-primary"
         />
       </form>
