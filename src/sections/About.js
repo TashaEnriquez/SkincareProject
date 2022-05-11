@@ -10,7 +10,7 @@ const About = () => {
           <h3 className="nameh3">Bahulya</h3>
         </div>
         <div className="logo">
-          <img src={logo} className="logoImg" />
+          <img src={logo} className="logoImg" alt="logo" />
         </div>
         <div className="name">
           <h3 className="nameh3">Natasha</h3>
