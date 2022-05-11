@@ -41,7 +41,7 @@ const CreateNewRoutine = ({ productId }) => {
         return;
       });
   }
-
+  console.log("TEQUILA", form);
   return (
     <div>
       <h3>New Routine</h3>

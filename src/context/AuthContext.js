@@ -54,7 +54,7 @@ const AuthState = ({ children }) => {
       console.log(token);
       setIsAuthenticated(true);
       setLoading(false);
-      navigate("/protected/routinegenerator", { replace: true });
+      navigate("/", { replace: true });
     } catch (error) {
       toast.error(error.response?.data.error || error.messsage);
       setLoading(false);
@@ -74,7 +74,7 @@ const AuthState = ({ children }) => {
       setToken(token);
       setIsAuthenticated(true);
       setLoading(false);
-      navigate("/protected/routinegenerator", { replace: true });
+      navigate("/", { replace: true });
     } catch (error) {
       toast.error(error.response?.data.error || error.message);
       setLoading(false);

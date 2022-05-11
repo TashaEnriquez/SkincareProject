@@ -47,9 +47,10 @@ const AddRoutineButton = ({ productId }) => {
             My routines
           </Typography>
           <div>
-            {routines?.map((routine) => {
-              return <EditRoutine routine={routine} productId={productId} />;
-            })}
+            {/*   {routines &&
+              routines?.map((routine) => {
+                return <EditRoutine routine={routine} productId={productId} />;
+              })} */}
           </div>
           <CreateNewRoutine productId={productId} />
         </Box>

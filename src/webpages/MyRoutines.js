@@ -40,8 +40,8 @@ const MyRoutines = () => {
                   </div>
                   <div className="cardContent">
                     <div>
-                      {routine.products?.map((product) => (
-                        <p>{product.name}</p>
+                      {routine.products.map((product) => (
+                        <p key={product._id}>{product.name}</p>
                       ))}
                     </div>
                   </div>
