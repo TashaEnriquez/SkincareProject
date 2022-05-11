@@ -45,6 +45,7 @@ iframe {
   min-height: 35rem;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .hero-bg .hero .left-content {
@@ -77,17 +78,23 @@ button.signup-button {
 }
 .right-content {
   margin-top: -100px;
-  display: flex;
+ 
   margin-left: 80px;
 }
 /* img.step-one,img.step-two,img.step-three,img.step-four {
   border-radius: 100px;
   margin: 20px;
 } */
-.row-1{
+
+.first-two {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.second-two {
   display: flex;
-  justify-content: space-around;
-  margin-top: -200px;
+  justify-content: center;
+  align-items: center;
 }
 .card-container-1 {
     width: 300px;
@@ -138,7 +145,6 @@ button.signup-button {
   height: 200px;
   border-radius: 50px;
   position: relative;
-  margin-top: 20px;
   background-image: url(../images/moisturize.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -162,6 +168,7 @@ button.signup-button {
   border-radius: 50px;
   position: relative;
   margin-left: 30px;
+  margin-top: 20px;
   background-image: url(../images/toning.png);
   background-size: cover;
   background-repeat: no-repeat;

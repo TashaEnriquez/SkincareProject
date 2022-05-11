@@ -97,7 +97,7 @@ const RoutineGenerator = () => {
                           </div>
                         </div>
                         {product.ingredients?.map((ingredient) => (
-                          <p className="routinep">{ingredient.name}</p>
+                          <p className="routinep">{ingredient.name}, </p>
                         ))}
                       </CardContent>
                     </CardActionArea>
