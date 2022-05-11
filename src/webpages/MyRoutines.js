@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../styles/MyRoutine.css";
 import { useAuth } from "../context/AuthContext";
 import {
   Accordion,
@@ -15,6 +16,10 @@ const MyRoutines = () => {
   const [routines, setRoutines] = useState([]);
   const { user } = useAuth();
   const [routineId, setRoutineId] = useState(" ");
+
+  const handleClick = (e) => {
+    setRoutineId((prev) => ({ ...prev, name: e.target.value }));
+  };
 
   useEffect(() => {
     async function getRoutines() {
@@ -43,8 +48,36 @@ const MyRoutines = () => {
     return;
   }, [routineId]);
 
+  const amroutine = routines.filter((item) => item.name === "AM Routine");
+  const pmroutine = routines.filter((item) => item.name === "PM Routine");
+
   const productsMapping = (e) => {
-    setRoutineId(e.target.value);
+    setRoutines(e.target.value);
+  };
+
+  const RoutineTypes = ({ routines, name }) => {
+    return (
+      <div className="mainMapping">
+        <div className="categoryDivision">
+          <h3 className="categoryTitle">{name}</h3>
+        </div>
+        <div className="routinesByType">
+          {routines.length
+            ? routines.map((routine) => (
+                <div key={routine._id}>
+                  <div className="cardContent">
+                    <div>
+                      {routine.products?.map((product) => (
+                        <p>{product.name}</p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))
+            : "No product matches your search"}
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -52,9 +85,8 @@ const MyRoutines = () => {
       <div>
         <h2>My Routines</h2>
       </div>
-      <div className="mainSection">
-        <div className="left">
-          <Accordion>
+
+      {/*    <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon className="expandIcon" />}
             >
@@ -75,7 +107,7 @@ const MyRoutines = () => {
                             control={<Radio />}
                             label={routine.name}
                             labelPlacement="start"
-                            onClick={productsMapping}
+                            onClick={handleClick}
                           />
                         </div>
                       ))
@@ -83,19 +115,11 @@ const MyRoutines = () => {
                 </RadioGroup>
               </FormControl>
             </AccordionDetails>
-          </Accordion>
-        </div>
-        <div className="productsMapping">
-          {routines.length
-            ? routines.map((routine) => (
-                <div>
-                  {routine.products?.map((product) => (
-                    <p>{product.name}</p>
-                  ))}
-                </div>
-              ))
-            : "This routine is empty"}
-        </div>
+          </Accordion> */}
+
+      <div className="productsMapping">
+        <RoutineTypes routines={amroutine} name="AM Routine" />
+        <RoutineTypes routines={pmroutine} name="PM Routine" />
       </div>
     </div>
   );
