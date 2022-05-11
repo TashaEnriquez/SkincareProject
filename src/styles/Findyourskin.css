@@ -15,9 +15,13 @@
   width: 25%;
 }
 
-img {
+.skintype img {
   width: 100%;
   display: block;
+  padding: 20px;
+}
+.skintype h3 {
+  padding-top: 10px;
 }
 
 .instructionsh2 {

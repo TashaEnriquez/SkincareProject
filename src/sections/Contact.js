@@ -1,6 +1,8 @@
 import "../styles/Contact.css";
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import Googlemap from "../components/Googlemap";
+import Info from "../components/Info";
 
 const Contact = () => {
   const [{ name, user_email, message }, setFormState] = useState({
@@ -51,7 +53,14 @@ const Contact = () => {
         <h3 className="contacth3">Get in touch!</h3>
       </div>
       <div className="container">
-        <div className="left">Information</div>
+        <div className="left">
+          <Googlemap />
+          <h5>We are here</h5>
+          <p>12459, Berlin</p>
+          <a href="https://www.google.com/maps/place/WBS+CODING+SCHOOL+Hybrid+Coding+Bootcamp/@52.4571306,13.5378842,17z/data=!3m1!4b1!4m5!3m4!1s0x47a845aaa1e6aaf5:0x4a9c655f0b058b03!8m2!3d52.4571306!4d13.5400729">
+            Open in maps
+          </a>
+        </div>
         <div className="right">
           <label htmlFor="name">
             Your name
