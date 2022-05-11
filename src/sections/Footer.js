@@ -11,17 +11,17 @@ const Footer = () => {
         voluptatem quaerat hic reiciendis veniam id doloribus soluta et maiores
         consequatur
       </p>
-      <div class="icons-wrapper">
-        <i class="ri-facebook-circle-line icon"></i>
-        <i class="ri-instagram-line icon"></i>
-        <i class="ri-linkedin-line icon"></i>
+      <div className="icons-wrapper">
+        <i className="ri-facebook-circle-line icon"></i>
+        <i className="ri-instagram-line icon"></i>
+        <i className="ri-linkedin-line icon"></i>
       </div>
-      <div class="footer-bottom">
+      <div className="footer-bottom">
         <p>
           copyright &copy;2022 <a href="#">Know It</a>{" "}
         </p>
-        <div class="footer-menu">
-          <ul class="f-menu">
+        <div className="footer-menu">
+          <ul className="f-menu">
             <li>
               <a href="">Home</a>
             </li>
