@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "../styles/MyRoutine.css";
 import { useAuth } from "../context/AuthContext";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
+import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const MyRoutines = () => {
   const [routines, setRoutines] = useState([]);
@@ -26,29 +28,42 @@ const MyRoutines = () => {
   const RoutineTypes = () => {
     return (
       <div className="mainMapping">
-        <div className="routinesByType">
-          {user.routines.length
-            ? user.routines.map((routine) => (
-                <div key={routine._id}>
-                  <div className="categoryDivision">
-                    <h3 className="categoryTitle">
-                      {routine.name}{" "}
-                      <DeleteForeverOutlinedIcon
-                        onClick={() => deleteRoutine(routine._id)}
-                      />
-                    </h3>
-                  </div>
-                  <div className="cardContent">
-                    <div>
-                      {routine.products.map((product) => (
-                        <p key={product._id}>{product.name}</p>
-                      ))}
-                    </div>
+        {user.routines.length
+          ? user.routines.map((routine) => (
+              <div key={routine._id}>
+                <div className="categoryDivision">
+                  <h3 className="categoryTitle">{routine.name}</h3>
+                  <DeleteForeverOutlinedIcon
+                    onClick={() => deleteRoutine(routine._id)}
+                  />
+                </div>
+                <div className="cardContent">
+                  <div className="productsMapping">
+                    {routine.products.map((product) => (
+                      <div>
+                        <Card key={product._id} sx={{ maxWidth: 345 }}>
+                          <CardActionArea>
+                            <Link to={`/products/${product._id}`}>
+                              <CardMedia
+                                component="img"
+                                height="200"
+                                image={product.imageURL}
+                                alt={product.name}
+                              />
+                            </Link>
+                            <CardContent>
+                              <h5>{product.name}</h5>
+                              <h4 className="routineh4">{product.brand}</h4>
+                            </CardContent>
+                          </CardActionArea>
+                        </Card>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))
-            : "No product matches your search"}
-        </div>
+              </div>
+            ))
+          : "No product matches your search"}
       </div>
     );
   };
@@ -56,44 +71,9 @@ const MyRoutines = () => {
   return (
     <div>
       <div>
-        <h2>My Routines</h2>
+        <h2 className="myRoutinesh2">My Routines</h2>
       </div>
       <RoutineTypes />
-      {/*    <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon className="expandIcon" />}
-            >
-              <h3>Routines</h3>
-            </AccordionSummary>
-            <AccordionDetails>
-              <FormControl>
-                <RadioGroup
-                  aria-labelledby="routines"
-                  name="routine"
-                  defaultValue=""
-                >
-                  {routines.length
-                    ? routines.map((routine) => (
-                        <div>
-                          <FormControlLabel
-                            value={routine._id}
-                            control={<Radio />}
-                            label={routine.name}
-                            labelPlacement="start"
-                            onClick={handleClick}
-                          />
-                        </div>
-                      ))
-                    : "No routines to show"}
-                </RadioGroup>
-              </FormControl>
-            </AccordionDetails>
-          </Accordion> */}
-
-      {/*  <div className="productsMapping">
-        <RoutineTypes routines={amroutine} name="AM Routine" />
-        <RoutineTypes routines={pmroutine} name="PM Routine" />
-        </div>*/}
     </div>
   );
 };
