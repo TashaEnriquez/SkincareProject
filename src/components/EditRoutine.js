@@ -13,7 +13,7 @@ const EditRoutine = ({ routine, productId }) => {
       products: [...routine.products, productId],
     };
     const res = await fetch(
-      `http://localhost:5050/routines/user/${user._id}/routines/${routine._id}`,
+      `${process.env.REACT_APP_API_URL}/routines/user/${user._id}/routines/${routine._id}`,
       {
         method: "PUT",
         body: JSON.stringify(editedRoutine),

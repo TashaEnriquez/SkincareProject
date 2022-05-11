@@ -19,9 +19,12 @@ const SingleProduct = () => {
       try {
         setLoading(true);
         const { data } = await axios.get(
-          `http://localhost:5050/products/${productId}`
+          `${process.env.REACT_APP_API_URL}/products/${productId}`
         );
-        console.log("url", `http://localhost:5050/products/${productId}`);
+        console.log(
+          "url",
+          `${process.env.REACT_APP_API_URL}/products/${productId}`
+        );
         console.log(data);
         setProduct(data.data);
         setLoading(false);

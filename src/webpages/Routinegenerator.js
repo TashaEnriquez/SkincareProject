@@ -39,7 +39,9 @@ const RoutineGenerator = () => {
         query.append("recommendedFor", filter.recommendedFor);
       }
 
-      const response = await fetch(`http://localhost:5050/products/?${query}`);
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/products/?${query}`
+      );
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;

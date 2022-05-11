@@ -20,14 +20,17 @@ const CreateNewRoutine = ({ productId }) => {
     e.preventDefault();
     const newRoutine = { ...form };
 
-    await fetch(`http://localhost:5050/routines/user/${user._id}/routines`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token"),
-      },
-      body: JSON.stringify(newRoutine),
-    })
+    await fetch(
+      `${process.env.REACT_APP_API_URL}/routines/user/${user._id}/routines`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("token"),
+        },
+        body: JSON.stringify(newRoutine),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setUser((prev) => ({ ...prev, routines: data }));

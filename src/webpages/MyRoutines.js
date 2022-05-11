@@ -5,45 +5,11 @@ import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined
 
 const MyRoutines = () => {
   const [routines, setRoutines] = useState([]);
-  const { user } = useAuth();
-  /* const [routineId, setRoutineId] = useState(" ");
+  const { user, setUser } = useAuth();
 
-  const handleClick = (e) => {
-    setRoutineId((prev) => ({ ...prev, name: e.target.value }));
-  }; */
-
-  useEffect(() => {
-    async function getRoutines() {
-      const response = await fetch(
-        `http://localhost:5050/routines/user/${user._id}/routines`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
-
-      if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
-
-      const routines = await response.json();
-      setRoutines(routines);
-    }
-
-    getRoutines();
-
-    return;
-  }, []);
-
-  /* // Delete a product
-
-  async function deleteRoutine() {
+  const deleteRoutine = async (routineId) => {
     await fetch(
-      `http://localhost:5050/routines/user/${user._id}/routines/${user.routines._id}`,
+      `${process.env.REACT_APP_API_URL}/routines/user/${user._id}/routines/${routineId}`,
       {
         method: "DELETE",
         headers: {
@@ -51,30 +17,24 @@ const MyRoutines = () => {
           Authorization: localStorage.getItem("token"),
         },
       }
-    );
+    )
+      .then((res) => res.json())
+      .then((data) => setUser((prev) => ({ ...prev, routines: data })))
+      .catch((err) => console.error(err));
+  };
 
-    const newRoutines = routines.filter((el) => el._id !== id);
-    setRoutines(newRoutines);
-  } */
-
-  /* const amroutine = routines.filter((item) => item.name === "AM Routine");
-  const pmroutine = routines.filter((item) => item.name === "PM Routine"); */
-
-  /*  const productsMapping = (e) => {
-    setRoutines(e.target.value);
-  }; */
-
-  const RoutineTypes = (/* { routines, name } */) => {
+  const RoutineTypes = () => {
     return (
       <div className="mainMapping">
         <div className="routinesByType">
-          {routines.length
-            ? routines.map((routine) => (
+          {user.routines.length
+            ? user.routines.map((routine) => (
                 <div key={routine._id}>
                   <div className="categoryDivision">
                     <h3 className="categoryTitle">
                       {routine.name}{" "}
-                      <DeleteForeverOutlinedIcon /* onClick={deleteRoutine} */
+                      <DeleteForeverOutlinedIcon
+                        onClick={() => deleteRoutine(routine._id)}
                       />
                     </h3>
                   </div>
