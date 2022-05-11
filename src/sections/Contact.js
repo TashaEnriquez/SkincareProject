@@ -1,8 +1,11 @@
 import "../styles/Contact.css";
 import { useState } from "react";
 import emailjs from "emailjs-com";
-import Googlemap from "../components/Googlemap";
+import ContactMap from "../components/Map";
 import { TextField } from "@mui/material";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 
 const Contact = () => {
   const [{ name, user_email, message }, setFormState] = useState({
@@ -54,68 +57,77 @@ const Contact = () => {
       </div>
       <div className="container">
         <div className="left">
-          <Googlemap />
-          <h5>We are here</h5>
-          <p>12459, Berlin</p>
-          <a href="https://www.google.com/maps/place/WBS+CODING+SCHOOL+Hybrid+Coding+Bootcamp/@52.4571306,13.5378842,17z/data=!3m1!4b1!4m5!3m4!1s0x47a845aaa1e6aaf5:0x4a9c655f0b058b03!8m2!3d52.4571306!4d13.5400729">
-            Open in maps
-          </a>
+          <div className="contactIconSection phone">
+            <LocalPhoneOutlinedIcon
+              sx={{ fontSize: "2.5rem" }}
+              className="contactIcon"
+            />
+            <h4>+49 174 0000 000</h4>
+          </div>
+          <div className="contactIconSection">
+            <EmailOutlinedIcon
+              sx={{ fontSize: "2.5rem" }}
+              className="contactIcon"
+            />
+            <h4>info@know-it.de</h4>
+          </div>
+          <div className="contactIconSection">
+            <LocationOnOutlinedIcon
+              sx={{ fontSize: "2.5rem" }}
+              className="contactIcon"
+            />
+            <h4>Berlin, Germany</h4>
+          </div>
         </div>
         <div className="right">
           <form onSubmit={sendEmail}>
-            <label htmlFor="name">
-              Your name
-              <TextField
-                className="input"
-                type="text"
-                id="name"
-                name="name"
-                label="Your Name"
-                size="small"
-                margin="normal"
-                value={name}
-                onChange={handleInputChange}
-                error={Boolean(errors?.name)}
-                helperText={errors?.name}
-              />
-            </label>
-            <label htmlFor="email">
-              Your E-Mail
-              <TextField
-                className="input"
-                type="email"
-                id="user_email"
-                name="user_email"
-                label="Your E-Mail"
-                size="small"
-                margin="normal"
-                value={user_email}
-                onChange={handleInputChange}
-                error={Boolean(errors?.user_email)}
-                helperText={errors?.user_email}
-              />
-            </label>
-            <label htmlFor="message">
-              Your message
-              <TextField
-                className="textarea"
-                multiline
-                type="text"
-                id="message"
-                name="message"
-                label="Your Message"
-                margin="normal"
-                value={message}
-                onChange={handleInputChange}
-                error={Boolean(errors?.message)}
-                helperText={errors?.message}
-              />
-            </label>
+            <TextField
+              className="input"
+              type="text"
+              id="name"
+              name="name"
+              label="Your Name"
+              size="small"
+              margin="normal"
+              value={name}
+              onChange={handleInputChange}
+              error={Boolean(errors?.name)}
+              helperText={errors?.name}
+            />
+            <TextField
+              className="input"
+              type="email"
+              id="user_email"
+              name="user_email"
+              label="Your E-Mail"
+              size="small"
+              margin="normal"
+              value={user_email}
+              onChange={handleInputChange}
+              error={Boolean(errors?.user_email)}
+              helperText={errors?.user_email}
+            />
+            <TextField
+              className="textarea"
+              multiline
+              type="text"
+              id="message"
+              name="message"
+              label="Your Message"
+              margin="normal"
+              value={message}
+              onChange={handleInputChange}
+              error={Boolean(errors?.message)}
+              helperText={errors?.message}
+            />
             <button type="submit" className="contactButton">
               Send
             </button>
           </form>
         </div>
+      </div>
+      <div>
+        <ContactMap />
       </div>
     </div>
   );
