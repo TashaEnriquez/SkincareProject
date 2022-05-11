@@ -14,7 +14,7 @@ const Findyourskin = () => {
           Finding out your skintype helps you learn how to help your skin, so
           let's make it as simple as possible.
         </h4>
-        <ol>
+        <ul>
           <li>
             Use a gentle cleanser: foam it up in your hand and gently rub it
             accross your face for about 30-45 seconds before rinsing off and
@@ -29,7 +29,7 @@ const Findyourskin = () => {
             After the hour has passed, go to a mirror and closely examine your
             skin:
           </li>
-        </ol>
+        </ul>
       </div>
       <div className="results">
         <div className="skintype">

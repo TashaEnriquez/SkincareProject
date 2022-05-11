@@ -1,6 +1,6 @@
 .findyourskin-section {
   padding: 2.5rem 0;
-  background-color: #ffdac1;
+  background-color: #F8FFE7;
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -9,12 +9,17 @@
 .results {
   display: flex;
   justify-content: center;
+  font-size: 20px;
 }
 
 .skintype {
   width: 25%;
 }
-
+.skintype p {
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+  padding: 10px;
+}
 .skintype img {
   width: 100%;
   display: block;
@@ -27,4 +32,13 @@
 .instructionsh2 {
   font-size: 3rem;
   margin-top: 0;
+}
+.instructions h4 {
+  font-size: 1.3rem;
+}
+.instructions ul li {
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  list-style-type: square;
 }
