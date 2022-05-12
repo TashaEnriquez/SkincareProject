@@ -1,6 +1,8 @@
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { TextField } from "@mui/material";
+import "../styles/CreateRoutine.css";
 
 const CreateNewRoutine = ({ productId }) => {
   const { user, setUser } = useAuth();
@@ -41,23 +43,36 @@ const CreateNewRoutine = ({ productId }) => {
         return;
       });
   }
-  console.log("TEQUILA", form);
+
   return (
     <div>
-      <h3>New Routine</h3>
+      <h3 className="routineh3">Or create a new routine!</h3>
       <form onSubmit={onSubmit}>
-        <label htmlFor="name">Name</label>
+        <TextField
+          className="innput"
+          type="text"
+          id="name"
+          name="name"
+          label="Name"
+          size="small"
+          margin="normal"
+          value={form.name}
+          onChange={(e) => updateForm({ name: e.target.value })}
+        />
+        {/* <label htmlFor="name" className="labelNameRoutine">
+          Name
+        </label>
         <input
           type="text"
           className="form-control"
           id="name"
           value={form.name}
           onChange={(e) => updateForm({ name: e.target.value })}
-        />
+        /> */}
         <input
           type="submit"
           value="Create routine"
-          className="btn btn-primary"
+          className="btn btn-primary routineButton"
         />
       </form>
     </div>

@@ -1,0 +1,11 @@
+.add {
+  color: #ff9aa2;
+  text-align: center;
+}
+
+.createdRoutines {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
