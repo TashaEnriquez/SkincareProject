@@ -33,9 +33,11 @@ const EditRoutine = ({ routine, productId }) => {
   };
 
   return (
-    <Button key={routine._id} onClick={updateRoutine}>
-      {routine.name}
-    </Button>
+    <div className="routineDisplay">
+      <Button key={routine._id} onClick={updateRoutine}>
+        {routine.name}
+      </Button>
+    </div>
   );
 };
 

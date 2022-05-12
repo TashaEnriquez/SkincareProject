@@ -7,6 +7,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useAuth } from "../context/AuthContext";
 import CreateNewRoutine from "./CreateRoutine.js";
 import EditRoutine from "./EditRoutine.js";
+import "../styles/Modal.css";
 
 const style = {
   position: "absolute",
@@ -15,19 +16,17 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: "1px solid #000",
   boxShadow: 24,
   p: 4,
 };
 
 const AddRoutineButton = ({ productId }) => {
-  // console.log("ID", productId);
   const {
     user: { routines },
   } = useAuth();
   const [open, setOpen] = React.useState(false);
   const handleClick = (e) => {
-    // console.log("button +", e.target);
     setOpen(!open);
   };
 
@@ -43,10 +42,10 @@ const AddRoutineButton = ({ productId }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography variant="h6" component="h2">
-            My routines
+          <Typography variant="h6" component="h2" className="add">
+            Add to an existing routine
           </Typography>
-          <div>
+          <div className="createdRoutines">
             {routines &&
               routines?.map((routine) => {
                 return <EditRoutine routine={routine} productId={productId} />;
