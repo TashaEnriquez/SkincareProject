@@ -56,7 +56,9 @@ const SingleProduct = () => {
               <div className="ingredient-name">
                 <h5>Key Ingredients: {ingredient.name}</h5>
                 <p>Ingredients Description: {ingredient.description}</p>
-                <p>Ingredient Rating - {ingredient.rating}/5</p>
+                <p className="rating">
+                  Ingredient Rating - {ingredient.rating}/5
+                </p>
               </div>
             ))}
           </div>

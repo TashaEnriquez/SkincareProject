@@ -81,7 +81,7 @@ const RoutineGenerator = () => {
                 <div>
                   <Card
                     key={product._id}
-                    sx={{ maxWidth: 345, margin: "0.5rem" }}
+                    sx={{ maxWidth: 345, minHeight: 500, margin: "0.5rem" }}
                   >
                     <CardActionArea>
                       <Link to={`/products/${product._id}`}>
