@@ -26,5 +26,10 @@
   flex-wrap: wrap;
   width: 80%;
   text-align: center;
-  margin-left: 5rem;
+  align-items: flex-start;
+  align-content: space-around;
+}
+
+.pleaseWork {
+  width: 100%;
 }
